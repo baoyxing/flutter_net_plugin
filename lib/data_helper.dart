@@ -11,7 +11,7 @@ class DataHelper {
 
   static encryptParams(SplayTreeMap<String, dynamic> map,String signKey) {
     var buffer = StringBuffer();
-    buffer.write(signKey);
+    buffer.write(signKey+"&");
     map.forEach((key, value) {
       buffer.write(key + "=" + value+"&");
     });
@@ -21,6 +21,4 @@ class DataHelper {
     FormData formData = FormData.fromMap(map);
     return formData;
   }
-
-
 }
